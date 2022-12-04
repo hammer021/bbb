@@ -35,18 +35,12 @@
         </div>
         
         <div class="col-xs-12 col-sm-12 col-md-12">
-            {{-- <div class="form-group">
-                <strong>Jenis Kelamin:</strong>
-                <input class="form-control" name="jenis_kelamin" placeholder="jenis_kelamin"></input>
-            </div> --}}
             <label for="jenis_kelamin">Jenis Kelamin:</label>
                 <select class="form-control" name="jenis_kelamin" placeholder="Jenis Kelamin" id="jenis_kelamin">
                     <option value="Pria">Pria</option>
                     <option value="Wanita">Wanita</option>
-                </select>
-        
+                </select>        
         </div>
-
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
@@ -58,6 +52,12 @@
             <div class="form-group">
                 <strong>Password:</strong>
                 <input type="password" class="form-control" name="password" placeholder="Password"></input>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Ulangi Password:</strong>
+                <input type="password" class="form-control" name="password_confirm" placeholder="Password"></input>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
