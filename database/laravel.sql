@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 04, 2022 at 05:47 PM
+-- Generation Time: Dec 04, 2022 at 09:08 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -20,30 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `laravel`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `akuns`
---
-
-CREATE TABLE `akuns` (
-  `id` bigint UNSIGNED NOT NULL,
-  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jenis_kelamin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alamat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `akuns`
---
-
-INSERT INTO `akuns` (`id`, `username`, `email`, `jenis_kelamin`, `alamat`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'manager', 'admin@example.com', 'Pria', 'jember', '111', '2022-12-04 09:32:59', '2022-12-04 09:43:49');
 
 -- --------------------------------------------------------
 
@@ -78,11 +54,11 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2022_12_04_112721_create_user_table', 1);
+(15, '2022_12_04_112721_create_user_table', 1),
+(16, '2014_10_12_000000_create_users_table', 2),
+(17, '2014_10_12_100000_create_password_resets_table', 2),
+(18, '2019_08_19_000000_create_failed_jobs_table', 2),
+(19, '2019_12_14_000001_create_personal_access_tokens_table', 2);
 
 -- --------------------------------------------------------
 
@@ -123,8 +99,11 @@ CREATE TABLE `personal_access_tokens` (
 
 CREATE TABLE `users` (
   `id` bigint UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jenis_kelamin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alamat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -133,15 +112,15 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Indexes for dumped tables
+-- Dumping data for table `users`
 --
 
+INSERT INTO `users` (`id`, `name`, `email`, `username`, `jenis_kelamin`, `alamat`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'admin@example.com', 'manager', 'Pria', 'jember', NULL, '$2y$10$oyeoLR.4OXpI8ls99zc6i.Anr0w81VUVJFWRGYlOyYYyn2H53yrxO', NULL, '2022-12-04 13:01:47', '2022-12-04 13:01:47');
+
 --
--- Indexes for table `akuns`
+-- Indexes for dumped tables
 --
-ALTER TABLE `akuns`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `user_email_unique` (`email`);
 
 --
 -- Indexes for table `failed_jobs`
@@ -182,12 +161,6 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `akuns`
---
-ALTER TABLE `akuns`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -197,7 +170,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -209,7 +182,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
